@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 enum CLAnimation {
     case path
@@ -18,11 +19,16 @@ enum CLAnimation {
 class CLAnimationViewController: UIViewController {
 
     var animationType: CLAnimation = .path
+    private var lottie: CLLottieManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         display()
+    }
+    
+    deinit {
+        lottie = nil
     }
 
     /// display any animation effect from 'CLAnimation' type, you can view the animation's detail in this code.
@@ -43,10 +49,8 @@ class CLAnimationViewController: UIViewController {
     
     /// demo of lottie animation display
     private func lottieDisplay() {
-        CLLottieManager.show(inView: view, .deliver) {[weak self] (animationView, finished) in
-            guard let strongSelf = self else { return }
-            animationView.removeFromSuperview()
-            strongSelf.lottieDisplay()
+        lottie = CLLottieManager.show(inView: view, .deliver) {(animationView, finished) in
+            
         }
     }
 

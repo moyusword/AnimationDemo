@@ -16,11 +16,11 @@ enum LottieAnimationItem {
 
 class CLLottieManager: NSObject {
     
-    private var animationView: AnimationView?
+    var animationView: AnimationView?
     
     /// show the animation at a view, you can choose any different animation type to your view.
     /// you should keep the view's frame is nonull.
-    static func show(inView view: UIView, _ type: LottieAnimationItem, _ completed: ((AnimationView, Bool) -> ())?) {
+    static func show(inView view: UIView, _ type: LottieAnimationItem, _ completed: ((AnimationView, Bool) -> ())?) -> CLLottieManager {
         let manager = CLLottieManager()
         
         var animationView: AnimationView?
@@ -32,10 +32,13 @@ class CLLottieManager: NSObject {
             animationView = manager.circleLoop()
             animationView?.frame = CGRect(x: 0, y: 80, width: screen_width, height: screen_width)
         }
-        guard let childView = animationView else { return }
-        view.addSubview(childView)
         
-        manager.play(completed)
+        if let childView = animationView {
+            view.addSubview(childView)
+            manager.play(completed)
+        }
+        
+        return manager
     }
     
     /// laod lottie source from any json, and creat a animationView with the default config, return a 'AnimationView' object.
@@ -44,6 +47,7 @@ class CLLottieManager: NSObject {
         let bundleJsonNameString = "deliver-delight"//"stay-home"
         animationView = AnimationView(name: bundleJsonNameString)
         animationView?.contentMode = .scaleAspectFill
+        animationView?.loopMode = .loop
         return animationView
     }
     

@@ -9,46 +9,62 @@
 import UIKit
 
 class CLShapeLayer: CAShapeLayer {
-
-    ///
-    static func show(inView view: UIView) {
-        let bezierPath = UIBezierPath()
-        bezierPath.move(to: CGPoint(x: 50, y: 180))
-        bezierPath.addLine(to: CGPoint(x: 325, y: 180))
-        bezierPath.addLine(to: CGPoint(x: 80, y: 370))
-        bezierPath.addLine(to: CGPoint(x: 275, y: 370))
-        bezierPath.addLine(to: CGPoint(x: view.frame.width / 2, y: 300))
-        bezierPath.addLine(to: CGPoint(x: view.frame.width / 2, y: 480))
-        bezierPath.addLine(to: CGPoint(x: 30, y: 480))
-        bezierPath.addLine(to: CGPoint(x: 345, y: 480))
         
-        //画线
+    
+    /// path  路径
+    /// fillColor  填充颜色
+    /// fillRule  填充规则(‘非零’，‘奇偶’)
+    /// strokeColor  渲染颜色
+    /// strokeStart  渲染初始值
+    /// strokeEnd  渲染结束值
+    /// lineWidth  线宽(渲染)
+    /// miterLimit  最大斜长度（当lineJoin属性为kCALineJoinMiter生效）
+    /// lineCap  线两端的样式
+    /// lineJoin  连接点类型
+    /// lineDashPhase  虚线开始的位置
+    /// lineDashPattern  虚线设置
+    
+    /// demo of animation with a snow image position at the path
+    static func show(inView view: UIView) {
+        
+        //fllower path
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: view.center)
+        bezierPath.addQuadCurve(to: CGPoint(x: 80, y: view.center.y - 90), controlPoint: CGPoint(x: view.center.x + 50, y: view.center.y - 90))
+        bezierPath.addQuadCurve(to: view.center, controlPoint: CGPoint(x: 80, y: view.center.y - 20))
+        bezierPath.addQuadCurve(to: CGPoint(x: 80, y: view.center.y + 90), controlPoint: CGPoint(x: view.center.x + 50, y: view.center.y + 90))
+        bezierPath.addQuadCurve(to: view.center, controlPoint: CGPoint(x: 80, y: view.center.y + 20))
+        bezierPath.addQuadCurve(to: CGPoint(x: screen_width - 80, y: view.center.y + 90), controlPoint: CGPoint(x: view.center.x - 50, y: view.center.y + 90))
+        bezierPath.addQuadCurve(to: view.center, controlPoint: CGPoint(x: screen_width - 80, y: view.center.y + 20))
+        bezierPath.addQuadCurve(to: CGPoint(x: screen_width - 80, y: view.center.y - 90), controlPoint: CGPoint(x: view.center.x - 50, y: view.center.y - 90))
+        bezierPath.addQuadCurve(to: view.center, controlPoint: CGPoint(x: screen_width - 80, y: view.center.y - 20))
+        
+        //layer
         let shapeLayer = CLShapeLayer()
         shapeLayer.strokeColor = UIColor.white.cgColor
-        shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = 2
-        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
-        shapeLayer.lineCap = CAShapeLayerLineCap.round
+        shapeLayer.lineJoin = .round
+        shapeLayer.lineCap = .round
         shapeLayer.path = bezierPath.cgPath
         view.layer.addSublayer(shapeLayer)
         
+        //CABasicAnimation
         let pathAnim = CABasicAnimation(keyPath: "strokeEnd")
         pathAnim.duration = 5.0
-        pathAnim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        pathAnim.fromValue = 0//开始
-        pathAnim.toValue = 1//到100%
-        pathAnim.autoreverses = true// 动画按原路径返回
+        pathAnim.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        pathAnim.fromValue = 0
+        pathAnim.toValue = 1
+        pathAnim.autoreverses = true// 动画是否按原路径返回
         pathAnim.fillMode = .forwards
         pathAnim.repeatCount = Float.infinity
         shapeLayer.add(pathAnim, forKey: "strokeEndAnim")
         
+        //snow
+        let snow = UIImageView.init(image: UIImage.init(named: "snow"))
+        snow.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        view.addSubview(snow)
         
-        //视图沿路径移动
-        let moveV = UIImageView.init(image: UIImage.init(named: "snow"))
-        moveV.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        moveV.center = CGPoint(x: 50, y: 100)
-        view.addSubview(moveV)
-        
+        //CAKeyframeAnimation
         let keyAnima = CAKeyframeAnimation.init(keyPath: "position")
         keyAnima.duration = 5.0
         keyAnima.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
@@ -56,7 +72,7 @@ class CLShapeLayer: CAShapeLayer {
         keyAnima.autoreverses = true
         keyAnima.repeatCount = Float.infinity
         keyAnima.fillMode = .forwards
-        moveV.layer.add(keyAnima, forKey: "moveAnimation")
+        snow.layer.add(keyAnima, forKey: "moveAnimation")
     }
     
 }

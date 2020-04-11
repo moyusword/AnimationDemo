@@ -10,6 +10,8 @@ import UIKit
 
 class CLLaunchViewController: UIViewController {
 
+    private var lottie: CLLottieManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -25,9 +27,13 @@ class CLLaunchViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    deinit {
+        lottie = nil
+    }
+    
     /// creat an animation view and play it.
     private func loadAnimation() {
-        CLLottieManager.show(inView: view, .circle) {[weak self] (animationView, finished) in
+        lottie = CLLottieManager.show(inView: view, .circle) {[weak self] (animationView, finished) in
             if finished {
                 animationView.removeFromSuperview()
                 guard let strongSelf = self else { return }

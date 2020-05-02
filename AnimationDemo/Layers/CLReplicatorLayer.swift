@@ -101,8 +101,8 @@ class CLReplicatorLayer: CAReplicatorLayer {
         
         //CAReplicatorLayer
         let replicatorLayer = CLReplicatorLayer()
-        replicatorLayer.bounds = view.frame;
-        replicatorLayer.position = view.center;
+        replicatorLayer.bounds = view.frame
+        replicatorLayer.position = view.center
         view.layer.addSublayer(replicatorLayer)
         
         //CALayer
@@ -126,7 +126,7 @@ class CLReplicatorLayer: CAReplicatorLayer {
         replicatorLayer.instanceCount = 15
         replicatorLayer.preservesDepth = true
         var transform = CATransform3DIdentity
-        transform = CATransform3DRotate(transform, CGFloat(Double.pi * 2 / 15.0), 0, 0, 1);
+        transform = CATransform3DRotate(transform, CGFloat(Double.pi * 2 / 15.0), 0, 0, 1)
         replicatorLayer.instanceTransform = transform
         replicatorLayer.instanceDelay = 0.05
         replicatorLayer.instanceAlphaOffset = -1.0 / 15.0

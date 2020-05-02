@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     
     lazy var animations: [[String]] = {
-        let animations = [["CAShapeLayer"], ["CAReplicatorLayer"], ["CAEmitterLayer"], ["Lottie"]]
+        let animations = [["Progress"], ["CAShapeLayer"], ["CAReplicatorLayer"], ["CAEmitterLayer"], ["Lottie"]]
         return animations
     }()
     
@@ -53,12 +53,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let controller = CLAnimationViewController()
         switch indexPath.section {
         case 0:
-            controller.animationType = .path
+            controller.animationType = .progress
         case 1:
-            controller.animationType = .wave
+            controller.animationType = .path
         case 2:
-            controller.animationType = .fireworks
+            controller.animationType = .wave
         case 3:
+            controller.animationType = .fireworks
+        case 4:
             controller.animationType = .lottie
         default:
             break

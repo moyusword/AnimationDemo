@@ -10,6 +10,7 @@ import UIKit
 import Lottie
 
 enum CLAnimation {
+    case progress
     case path
     case wave
     case fireworks
@@ -20,6 +21,7 @@ class CLAnimationViewController: UIViewController {
 
     var animationType: CLAnimation = .path
     private var lottie: CLLottieManager?
+    private var progressView: CLProgressView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,15 @@ class CLAnimationViewController: UIViewController {
     /// display any animation effect from 'CLAnimation' type, you can view the animation's detail in this code.
     private func display() {
         switch animationType {
+        case .progress:
+            view.backgroundColor = UIColor.white
+            progressDisplay()
+            let start = UIButton(type: .custom)
+            start.frame = CGRect(x: view.bounds.width / 2 - 20, y: view.bounds.height - 200, width: 40, height: 30)
+            start.setTitle("start", for: .normal)
+            start.setTitleColor(.blue, for: .normal)
+            view.addSubview(start)
+            start.addTarget(self, action: #selector(animationStart), for: .touchUpInside)
         case .path:
             view.backgroundColor = UIColor.black
             CLShapeLayer.show(inView: view)
@@ -45,6 +56,18 @@ class CLAnimationViewController: UIViewController {
         case .lottie:
             lottieDisplay()
         }
+    }
+    
+    /// demo of a progress view animation display
+    private func progressDisplay() {
+        let progressView = CLProgressView(frame: CGRect(x: 30, y: 180, width: screen_width - 60, height: screen_width - 60))
+        view.addSubview(progressView)
+        self.progressView = progressView
+    }
+    
+    /// any animation style
+    @objc private func animationStart() {
+        progressView?.animationShow(80)
     }
     
     /// demo of lottie animation display

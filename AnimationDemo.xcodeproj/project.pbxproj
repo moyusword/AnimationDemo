@@ -15,6 +15,7 @@
 		984BDC7F243734EC00949E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 984BDC7E243734EC00949E0D /* Assets.xcassets */; };
 		984BDC82243734EC00949E0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 984BDC80243734EC00949E0D /* LaunchScreen.storyboard */; };
 		984BDC8B24373D9B00949E0D /* CLShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984BDC8A24373D9B00949E0D /* CLShapeLayer.swift */; };
+		9851D571244EEE1100BA89CF /* CLScaleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9851D570244EEE1100BA89CF /* CLScaleProgressView.swift */; };
 		98650420243C260300F867A4 /* CLEmitterLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9865041F243C260300F867A4 /* CLEmitterLayer.swift */; };
 		98650424243C469F00F867A4 /* deliver-delight.json in Resources */ = {isa = PBXBuildFile; fileRef = 98650423243C469F00F867A4 /* deliver-delight.json */; };
 		98650426243C46BB00F867A4 /* CLLottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98650425243C46BB00F867A4 /* CLLottieManager.swift */; };
@@ -23,6 +24,7 @@
 		9865042C243C55A300F867A4 /* CLAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9865042B243C55A300F867A4 /* CLAnimationViewController.swift */; };
 		9865042E243C578D00F867A4 /* CLReplicatorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9865042D243C578D00F867A4 /* CLReplicatorLayer.swift */; };
 		98650430243C72A800F867A4 /* stay-home.json in Resources */ = {isa = PBXBuildFile; fileRef = 9865042F243C72A800F867A4 /* stay-home.json */; };
+		98F9A549244D7AFE00D3BBFA /* CLProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9A548244D7AFE00D3BBFA /* CLProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,7 @@
 		984BDC81243734EC00949E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		984BDC83243734EC00949E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		984BDC8A24373D9B00949E0D /* CLShapeLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLShapeLayer.swift; sourceTree = "<group>"; };
+		9851D570244EEE1100BA89CF /* CLScaleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLScaleProgressView.swift; sourceTree = "<group>"; };
 		9865041F243C260300F867A4 /* CLEmitterLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLEmitterLayer.swift; sourceTree = "<group>"; };
 		98650423243C469F00F867A4 /* deliver-delight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "deliver-delight.json"; sourceTree = "<group>"; };
 		98650425243C46BB00F867A4 /* CLLottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLottieManager.swift; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 		9865042B243C55A300F867A4 /* CLAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLAnimationViewController.swift; sourceTree = "<group>"; };
 		9865042D243C578D00F867A4 /* CLReplicatorLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLReplicatorLayer.swift; sourceTree = "<group>"; };
 		9865042F243C72A800F867A4 /* stay-home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stay-home.json"; sourceTree = "<group>"; };
+		98F9A548244D7AFE00D3BBFA /* CLProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLProgressView.swift; sourceTree = "<group>"; };
 		ADF843D55FAFE1A63ABC90AA /* Pods-AnimationDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationDemo.release.xcconfig"; path = "Target Support Files/Pods-AnimationDemo/Pods-AnimationDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +90,7 @@
 				98650429243C513D00F867A4 /* CLLaunchViewController.swift */,
 				984BDC79243734EB00949E0D /* ViewController.swift */,
 				9865042B243C55A300F867A4 /* CLAnimationViewController.swift */,
+				98F9A547244D7AD700D3BBFA /* progress */,
 				984BDC8924373CFD00949E0D /* Layers */,
 				98650421243C469F00F867A4 /* Lottie */,
 				984BDC7B243734EB00949E0D /* Main.storyboard */,
@@ -123,6 +128,15 @@
 				98650423243C469F00F867A4 /* deliver-delight.json */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		98F9A547244D7AD700D3BBFA /* progress */ = {
+			isa = PBXGroup;
+			children = (
+				98F9A548244D7AFE00D3BBFA /* CLProgressView.swift */,
+				9851D570244EEE1100BA89CF /* CLScaleProgressView.swift */,
+			);
+			path = progress;
 			sourceTree = "<group>";
 		};
 		D1756246995CEA8119C56EDB /* Frameworks */ = {
@@ -260,8 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98F9A549244D7AFE00D3BBFA /* CLProgressView.swift in Sources */,
 				9865042C243C55A300F867A4 /* CLAnimationViewController.swift in Sources */,
 				9865042E243C578D00F867A4 /* CLReplicatorLayer.swift in Sources */,
+				9851D571244EEE1100BA89CF /* CLScaleProgressView.swift in Sources */,
 				9865042A243C513D00F867A4 /* CLLaunchViewController.swift in Sources */,
 				984BDC7A243734EB00949E0D /* ViewController.swift in Sources */,
 				984BDC76243734EB00949E0D /* AppDelegate.swift in Sources */,

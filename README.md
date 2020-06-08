@@ -2,7 +2,7 @@
 Demo of animation about 'CALayer' and it's child layer class, there are also some steps and demos of Lottie animation.
 
 
-#MDAdSDK
+# MDAdSDK
 
 **`MDAd.framework`** 用于 iOS 端移动应用广告展示. 基于 Swift 语言开发. 在使用广告服务的同时, 我们真诚希望收到大家的反馈. 如有疑问, 请联系我们 *admin@mobiw.com* 或者当前 github 账号.
 
@@ -139,7 +139,7 @@ RYAdMobCenter.center.setup("appKey", appSecret: "appSecret")
 | 810001 | 单图0.56 | 750 : 1334 |
 | 810002 | 上图下logo | 750 : 1334 |
 
-- [!]**810002**logo部分的高度为机器屏幕宽度的1/3
+- **810002**logo部分的高度为机器屏幕宽度的1/3
 
 通常用于 App 启动或者从一个页面过渡到另一个页面的场景中, 您可以使用 **RYInterstitialView** 类来实现全屏广告的展示:
 
@@ -153,7 +153,7 @@ RYAdMobCenter.center.setup("appKey", appSecret: "appSecret")
     interstitialView.delegate = self
     interstitialView.loadRequest()
     ```
-    
+   
     - **上图下Logo模式**不仅显示开屏广告图, 而且可以在底部融入 App 元素如 App logo, App 名称等.
         
      ```Swift
@@ -295,7 +295,7 @@ A: 下面分别介绍两个错误码含义:
 
 对于接入过程中的错误码详情, 请查看错误码文档: [错误码](https://github.com/ruiyuad/MDAd/blob/master/常见错误码.md)
 
-##版本更新日志
+## 版本更新日志
 
 0.9.0: 新增部分广告位，支持Deeplink跳转.    
 0.8.10: 优化初始化逻辑.    

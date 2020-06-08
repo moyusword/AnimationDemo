@@ -6,7 +6,7 @@ Demo of animation about 'CALayer' and it's child layer class, there are also som
 
 **`MDAd.framework`** 用于 iOS 端移动应用广告展示. 基于 Swift 语言开发. 在使用广告服务的同时, 我们真诚希望收到大家的反馈. 如有疑问, 请联系我们 *admin@mobiw.com* 或者当前 github 账号.
 
-##目录
+## 目录
 - [环境支持](#环境支持)
 - [集成方式](#集成方式)
 - [项目配置](#项目配置)
@@ -16,21 +16,21 @@ Demo of animation about 'CALayer' and it's child layer class, there are also som
 - [错误码](#错误码)
 - [版本更新日志](#版本更新日志)
 
-##环境支持
+## 环境支持
 
 - **基于 Swift 5.0+ 语言开发.** 如需支持 Swift 低版本的 framework, 请联系我们.
 - **支持 iOS 10.0+.**
 - **支持 Xcode 11.0+.**
 
-##集成方式
+## 集成方式
 
-###手动集成
+### 手动集成
 请将 `MDAd.framework` 和 `MDAd.bundle` 手动拖入项目中. 在弹出的文件选项框中, 请勾选 `Copy items if needed`, 如图所示: 
  ![1](https://github.com/ruiyuad/MDAd/blob/master/linkImages/1.png)
  - 用法: 在使用 `MDAd.framework` 时, 在需要的文件头部 `import MDAd` 即可. 
  - 如集成出现错误, 在 `target` -> `General` -> `Linked Frameworks and Libraries` 下删除 `MDAd.framework`, 然后在 `target` -> `General` -> `Embedded Binaries` 中添加 `MDAd.framework`. 这时也会自动在 `Linked Frameworks and Libraries` 目录下添加一份.
 
-###Cocoapods集成
+### Cocoapods集成
 在 `Podfile`中添加:
    ```Ruby
    
@@ -45,7 +45,7 @@ Demo of animation about 'CALayer' and it's child layer class, there are also som
 
  > NOTE: 如果您在 OC 项目中使用该 framework, 请在对应的 `target` -> `Build Settings` -> `ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES`  设置为 **YES**.
 
-##项目配置
+## 项目配置
 
 每个广告对应的链接内容会由广告主配置, 这些链接内容会存在 `http` urls 的情况. 为了尽可能显示广告链接内容, 推荐项目设置中打开对 `http` 的支持, 在`Info.plist`文件中添加如下内容:
 ```XML
@@ -56,18 +56,18 @@ Demo of animation about 'CALayer' and it's child layer class, there are also som
 </dict>
 ```
 
-##SDK初始化
+## SDK初始化
 使用 `MDAd.framework` 前, 请先确认已成功在平台注册 **AppKey** 和 **AppSecret**. 如已注册 **AppKey** 和 **AppSecret**, 请在您项目AppDelegate文件的 `application(_ application:, didFinishLaunchingWithOptions launchOptions:)` 做如下初始化:
 ```
 RYAdMobCenter.center.setup("appKey", appSecret: "appSecret")
 ```
 
-##广告样式
+## 广告样式
 
 **`MDAd.framework`** 提供五种广告类型, 分别是**Banner广告**、**信息流广告**、**开屏广告**、**插屏广告**、**浮标广告**. 对于每种广告类型, 都支持用户自定义样式，在使用这些广告之前, 您需要申请对应广告的ID, 开通对应广告权限后方可正常获取广告数据. 部分广告位展示效果如下图，如需要查看完整广告效果，建议下载对应Demo查看.
 ![Banner广告](https://github.com/ruiyuad/MDAd/blob/master/linkImages/3.PNG)![信息流广告](https://github.com/ruiyuad/MDAd/blob/master/linkImages/4.PNG) ![开屏广告](https://github.com/ruiyuad/MDAd/blob/master/linkImages/5.PNG) ![插屏广告](https://github.com/ruiyuad/MDAd/blob/master/linkImages/6.PNG) ![浮标广告](https://github.com/ruiyuad/MDAd/blob/master/linkImages/7.PNG)!
 
-###Banner广告 
+### Banner广告 
 >支持广告位如下(比列为广告位比例)
 
 | ID | 类型 | 广告位尺寸 |
@@ -96,7 +96,7 @@ RYAdMobCenter.center.setup("appKey", appSecret: "appSecret")
     bannerViewDidClose()
     ```
 
-###信息流广告
+### 信息流广告
 >支持广告位如下(比列为广告位比例)
 
 | ID | 类型 | 广告位尺寸 |
@@ -131,7 +131,7 @@ RYAdMobCenter.center.setup("appKey", appSecret: "appSecret")
     infoFlowViewDidClose()
     ```
 
-###开屏广告
+### 开屏广告
 >支持广告位如下(比列为广告位比例)
 
 | ID | 类型 | 广告位尺寸 |
@@ -169,7 +169,7 @@ RYAdMobCenter.center.setup("appKey", appSecret: "appSecret")
     interstitialCountDownDidTap()
     ```
 
-###插屏广告
+### 插屏广告
 >支持广告位如下(比列为广告位比例)
 
 | ID | 类型 | 广告位尺寸 |
@@ -196,7 +196,7 @@ RYAdMobCenter.center.setup("appKey", appSecret: "appSecret")
  	interstitialHalfViewDidClose()
  	```
 
-###浮标广告
+### 浮标广告
 >支持广告位如下(比列为广告位比例)
 
 | ID | 类型 | 广告位尺寸 |
@@ -223,7 +223,7 @@ RYAdMobCenter.center.setup("appKey", appSecret: "appSecret")
  	buoyViewDidClose()
  	```
 
-###自定义广告
+### 自定义广告
 
 提供广告数据源供开发者自定义广告样式, MDAd.framework 提供多种通用的广告类型, 对于需要 UI 定制化的广告展示, framework 开放广告展示所需的数据源给开发者, 用于 UI 定制化. 集成自定义广告的示例如下:
 
@@ -259,7 +259,7 @@ RYAdMobCenter.center.setup("appKey", appSecret: "appSecret")
     }
     ```
 
-##常见问题
+## 常见问题
 
 Q: 支持OC项目接入吗?     
 A: 支持. 该SDK使用 Swift 开发, 对 OC 项目做了全面的支持.
@@ -291,7 +291,7 @@ A: 下面分别介绍两个错误码含义:
  1. 40006 是当前广告位已经关闭.  
  2. 50001 表示当前广告位广告无法提供. 
  
-##错误码
+## 错误码
 
 对于接入过程中的错误码详情, 请查看错误码文档: [错误码](https://github.com/ruiyuad/MDAd/blob/master/常见错误码.md)
 

@@ -34,10 +34,10 @@ class CLShapeLayer: CAShapeLayer {
         bezierPath.addQuadCurve(to: view.center, controlPoint: CGPoint(x: 80, y: view.center.y - 20))
         bezierPath.addQuadCurve(to: CGPoint(x: 80, y: view.center.y + 90), controlPoint: CGPoint(x: view.center.x + 50, y: view.center.y + 90))
         bezierPath.addQuadCurve(to: view.center, controlPoint: CGPoint(x: 80, y: view.center.y + 20))
-        bezierPath.addQuadCurve(to: CGPoint(x: screen_width - 80, y: view.center.y + 90), controlPoint: CGPoint(x: view.center.x - 50, y: view.center.y + 90))
-        bezierPath.addQuadCurve(to: view.center, controlPoint: CGPoint(x: screen_width - 80, y: view.center.y + 20))
-        bezierPath.addQuadCurve(to: CGPoint(x: screen_width - 80, y: view.center.y - 90), controlPoint: CGPoint(x: view.center.x - 50, y: view.center.y - 90))
-        bezierPath.addQuadCurve(to: view.center, controlPoint: CGPoint(x: screen_width - 80, y: view.center.y - 20))
+        bezierPath.addQuadCurve(to: CGPoint(x: screenWidth - 80, y: view.center.y + 90), controlPoint: CGPoint(x: view.center.x - 50, y: view.center.y + 90))
+        bezierPath.addQuadCurve(to: view.center, controlPoint: CGPoint(x: screenWidth - 80, y: view.center.y + 20))
+        bezierPath.addQuadCurve(to: CGPoint(x: screenWidth - 80, y: view.center.y - 90), controlPoint: CGPoint(x: view.center.x - 50, y: view.center.y - 90))
+        bezierPath.addQuadCurve(to: view.center, controlPoint: CGPoint(x: screenWidth - 80, y: view.center.y - 20))
         
         //layer
         let shapeLayer = CLShapeLayer()

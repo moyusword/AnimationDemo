@@ -25,7 +25,7 @@ class CLReplicatorLayer: CAReplicatorLayer {
     static func show(inView view: UIView) {
         
         let childLayer = CLReplicatorLayer()
-//        childLayer.dogReflection(inView: view)
+        childLayer.dogReflection(inView: view)
         childLayer.wave(view)
         childLayer.circleDot(view)
         childLayer.followingPath(view)
@@ -70,7 +70,7 @@ class CLReplicatorLayer: CAReplicatorLayer {
         //CAReplicatorLayer
         let replicatorLayer = CLReplicatorLayer()
         replicatorLayer.bounds = view.frame
-        replicatorLayer.position = CGPoint(x: view.center.x, y: screen_height / 3 - 80)
+        replicatorLayer.position = CGPoint(x: view.center.x, y: screenHeight / 3 - 80)
         view.layer.addSublayer(replicatorLayer)
         
         //CALayer
@@ -140,7 +140,7 @@ class CLReplicatorLayer: CAReplicatorLayer {
         //CAReplicatorLayer
         let replicatorLayer = CLReplicatorLayer()
         replicatorLayer.bounds = view.frame
-        replicatorLayer.position = CGPoint(x: view.center.x, y: screen_height - screen_height / 3 + 80)
+        replicatorLayer.position = CGPoint(x: view.center.x, y: screenHeight - screenHeight / 3 + 80)
         view.layer.addSublayer(replicatorLayer)
         
         //CALayer
@@ -166,7 +166,7 @@ class CLReplicatorLayer: CAReplicatorLayer {
     private func following(_ view: UIView) -> UIBezierPath {
         let path = UIBezierPath()
         path.move(to: CGPoint(x: 20, y: view.center.y))
-        path.addCurve(to: CGPoint(x: screen_width - 20, y: view.center.y), controlPoint1: CGPoint(x: 130, y: view.center.y - 100), controlPoint2: CGPoint(x: 240, y: view.center.y + 200))
+        path.addCurve(to: CGPoint(x: screenWidth - 20, y: view.center.y), controlPoint1: CGPoint(x: 130, y: view.center.y - 100), controlPoint2: CGPoint(x: 240, y: view.center.y + 200))
         path.addCurve(to: CGPoint(x: 20, y: view.center.y), controlPoint1: CGPoint(x: 240, y: view.center.y - 100), controlPoint2: CGPoint(x: 130, y: view.center.y + 200))
         return path
     }

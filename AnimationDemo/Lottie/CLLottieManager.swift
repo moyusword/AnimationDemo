@@ -30,7 +30,7 @@ class CLLottieManager: NSObject {
             animationView?.frame = view.bounds
         default:
             animationView = manager.circleLoop()
-            animationView?.frame = CGRect(x: 0, y: 80, width: screen_width, height: screen_width)
+            animationView?.frame = CGRect(x: 0, y: 80, width: screenWidth, height: screenWidth)
         }
         
         if let childView = animationView {

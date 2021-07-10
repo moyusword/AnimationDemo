@@ -8,18 +8,20 @@
 
 import UIKit
 
-let screen_width = UIScreen.main.bounds.width
-let screen_height = UIScreen.main.bounds.height
+let screenWidth = UIScreen.main.bounds.width
+let screenHeight = UIScreen.main.bounds.height
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     
-    lazy var animations: [[String]] = {
-        let animations = [["Progress"], ["CAShapeLayer"], ["CAReplicatorLayer"], ["CAEmitterLayer"], ["Lottie"]]
-        return animations
-    }()
+    lazy var animations = [["Progress"],
+                           ["CAShapeLayer"],
+                           ["CAReplicatorLayer"],
+                           ["CAEmitterLayer"],
+                           ["Lottie"],
+                           ["OtherTestEffect"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,20 +53,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let controller = CLAnimationViewController()
-        switch indexPath.section {
-        case 0:
-            controller.animationType = .progress
-        case 1:
-            controller.animationType = .path
-        case 2:
-            controller.animationType = .wave
-        case 3:
-            controller.animationType = .fireworks
-        case 4:
-            controller.animationType = .lottie
-        default:
-            break
-        }
+        controller.animationType = CLAnimation(rawValue: indexPath.section) ?? .progress
         navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -9,12 +9,13 @@
 import UIKit
 import Lottie
 
-enum CLAnimation {
+enum CLAnimation: Int {
     case progress
     case path
     case wave
     case fireworks
     case lottie
+    case otherEffect
 }
 
 class CLAnimationViewController: UIViewController {
@@ -40,11 +41,16 @@ class CLAnimationViewController: UIViewController {
             view.backgroundColor = UIColor.white
             progressDisplay()
             let start = UIButton(type: .custom)
-            start.frame = CGRect(x: view.bounds.width / 2 - 20, y: view.bounds.height - 200, width: 40, height: 30)
+            start.frame = CGRect(x: view.bounds.width / 2 - 20,
+                                 y: view.bounds.height - 200,
+                                 width: 40,
+                                 height: 30)
             start.setTitle("start", for: .normal)
             start.setTitleColor(.blue, for: .normal)
             view.addSubview(start)
-            start.addTarget(self, action: #selector(animationStart), for: .touchUpInside)
+            start.addTarget(self,
+                            action: #selector(animationStart),
+                            for: .touchUpInside)
         case .path:
             view.backgroundColor = UIColor.black
             CLShapeLayer.show(inView: view)
@@ -55,24 +61,35 @@ class CLAnimationViewController: UIViewController {
             CLEmitterLayer.showFireworks(view)
         case .lottie:
             lottieDisplay()
+        case .otherEffect:
+            let progressView = CLScaleProgressView(frame: CGRect(x: 30,
+                                                                 y: 180,
+                                                                 width: screenWidth - 60,
+                                                                 height: screenWidth - 60))
+            view.addSubview(progressView)
+            progressView.showAnimation()
         }
     }
     
     /// demo of a progress view animation display
     private func progressDisplay() {
-        let progressView = CLProgressView(frame: CGRect(x: 30, y: 180, width: screen_width - 60, height: screen_width - 60))
+        let progressView = CLProgressView(frame: CGRect(x: 30,
+                                                        y: 180,
+                                                        width: screenWidth - 60,
+                                                        height: screenWidth - 60))
         view.addSubview(progressView)
         self.progressView = progressView
     }
-    
-    /// any animation style
+//
+//    /// any animation style
     @objc private func animationStart() {
         progressView?.animationShow(80)
     }
     
     /// demo of lottie animation display
     private func lottieDisplay() {
-        lottie = CLLottieManager.show(inView: view, .deliver) {(animationView, finished) in
+        lottie = CLLottieManager.show(inView: view,
+                                      .deliver) {(animationView, finished) in
             
         }
     }

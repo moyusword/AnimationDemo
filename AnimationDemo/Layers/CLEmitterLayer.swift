@@ -29,8 +29,8 @@ class CLEmitterLayer: CAEmitterLayer {
     static func showFireworks(_ view: UIView) {
         //分为3种粒子，子弹粒子，爆炸粒子，散开粒子
         let fireworkEmitter = CLEmitterLayer()
-        fireworkEmitter.emitterPosition = CGPoint(x: screen_width / 2, y: screen_height)
-        fireworkEmitter.emitterSize = CGSize(width: screen_width / 2, height: 0)
+        fireworkEmitter.emitterPosition = CGPoint(x: screenWidth / 2, y: screenHeight)
+        fireworkEmitter.emitterSize = CGSize(width: screenWidth / 2, height: 0)
         fireworkEmitter.emitterMode = .outline
         fireworkEmitter.emitterShape = .line
         fireworkEmitter.renderMode = .additive

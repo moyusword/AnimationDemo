@@ -25,7 +25,8 @@ class CLScaleProgressView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+//        scaleLayer()
+        animationScaleLayer(true)
     }
     
     required init?(coder: NSCoder) {
@@ -34,30 +35,31 @@ class CLScaleProgressView: UIView {
     
     
     func showAnimation() {
-            //1.1
-            circleProgressAnimation()
-            
-            //1.2  open draw(rect:)
-            // creatTimer()
-             
-            //1.3
-    //        guard let sublayers = replicatorLayer?.sublayers else { return }
-    //        for layer in sublayers {
-    //            // animation property
-    //            if let shapeLayer = layer as? CLShapeLayer {
-    //                opacityAnimationProgress(shapeLayer)
-    //            }
-    //        }
+        //1.1
+//        circleProgressLayer()
+//        circleProgressAnimation()
+        
+        //1.2  open draw(rect:)
+//        creatTimer()
+        
+        //1.3
+        guard let sublayers = replicatorLayer?.sublayers else { return }
+        for layer in sublayers {
+            // animation property
+            if let shapeLayer = layer as? CLShapeLayer {
+                opacityAnimationProgress(shapeLayer)
+            }
         }
+    }
     
     /// draw
-    //    override func draw(_ rect: CGRect) {
-    //        guard let context = UIGraphicsGetCurrentContext() else {
-    //            return
-    //        }
-    //        drawScale(context)
-    //        drawProcessScale(context)
-    //    }
+    override func draw(_ rect: CGRect) {
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return
+        }
+        drawScale(context)
+        drawProcessScale(context)
+    }
     
     /// use layer
     private func scaleLayer() {
@@ -113,12 +115,12 @@ class CLScaleProgressView: UIView {
     }
     
     /// timer
-    //    private func creatTimer() {
-    //        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
-    //            self.progressChange()
-    //        })
-    //        timer?.fire()
-    //    }
+    private func creatTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
+            self.progressChange()
+        })
+        timer?.fire()
+    }
     
     /// the progress up with animation
     private func progressChange() {
